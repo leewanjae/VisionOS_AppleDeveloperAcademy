@@ -7,16 +7,15 @@
 
 import SwiftUI
 import RealityKit
+import RealityKitContent
 
 struct ContentView: View {
-    
-    private let url = URL(string: "https://developer.apple.com/augmented-reality/quick-look/models/teapot/teapot.usdz")!
     
     var body: some View {
         VStack {
             Text("Show teapot")
             
-            Model3D(url: url) { model in
+            Model3D(named: "Scene", bundle: realityKitContentBundle) { model in
                 model
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -29,6 +28,6 @@ struct ContentView: View {
     }
 }
 
-#Preview(windowStyle: .automatic) {
+#Preview {
     ContentView()
 }
